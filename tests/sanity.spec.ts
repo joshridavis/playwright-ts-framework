@@ -1,5 +1,4 @@
 import { test, expect } from '../fixtures';
-import { InventoryPage } from '../pages/InventoryPage';
 
 test('add to cart adds the item successfully', async ({ inventoryPage }) =>{
         await inventoryPage.backpackAddToCart.click();
