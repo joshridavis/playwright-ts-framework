@@ -14,14 +14,14 @@ test('Add to cart button available and correct', async ({ inventoryPage }) =>{
 })
 
 test('Backpack item title is correct', async ({ inventoryPage }) =>{
-    await expect(inventoryPage.backpackTitle).toHaveText('Sauce Labs Backpack');
+    await expect(inventoryPage.backpackTitle).toHaveText(inventoryPage.backpackTitleTxt);
 })
 
 test('Backpack item description is correct', async ({ inventoryPage }) =>{
-    await expect(inventoryPage.backpackDescription).toHaveText('carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.');
+    await expect(inventoryPage.backpackDescription).toHaveText(inventoryPage.backpackDescriptionTxt);
 })
 
 test('Backpack item price is correct', async ({ inventoryPage }) =>{
-    await expect(inventoryPage.backpackPrice).toHaveText('$29.99');
+    await expect(inventoryPage.backpackPrice).toHaveText(inventoryPage.backpackPriceTxt);
 })
 

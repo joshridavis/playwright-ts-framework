@@ -17,7 +17,9 @@ export class InventoryPage{
     readonly hamburgerLogout: Locator;
     readonly hamburgerResetAppState: Locator;
     readonly hamburgerClose: Locator;
-
+    readonly backpackTitleTxt: string;
+    readonly backpackDescriptionTxt: string;
+    readonly backpackPriceTxt: string;
 
     constructor(page: Page){
         this.page = page;
@@ -36,6 +38,10 @@ export class InventoryPage{
         this.hamburgerLogout = page.getByTestId('logout-sidebar-link');
         this.hamburgerResetAppState = page.getByTestId('reset-sidebar-link');
         this.hamburgerClose = page.locator('#react-burger-cross-btn');
+        this.backpackTitleTxt = 'Sauce Labs Backpack';
+        this.backpackDescriptionTxt = 'carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.';
+        this.backpackPriceTxt = '$29.99';
+
     }
 
     async goto(){
