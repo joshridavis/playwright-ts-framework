@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures';
+import { test, expect } from '../../fixtures';
 
 test('logged-in user reaches cart without loggin in', async ({ cartPage }) =>{
     await expect(cartPage.title).toHaveText('Your Cart');

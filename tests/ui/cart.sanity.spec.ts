@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures';
+import { test, expect } from '../../fixtures';
 
 test('checkout button leads to the checkout screen', async ({ cartPage }) =>{
     await cartPage.checkout.click();

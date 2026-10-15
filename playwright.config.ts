@@ -25,11 +25,19 @@ export default defineConfig({
     },
     {
       name: 'chromium',
+      testDir: './tests/ui',
       use: {
         ...devices['Desktop Chrome'],
         storageState: 'playwright/.auth/user.json',
       },
       dependencies: ['setup'],
+    },
+    {
+      name: 'api',
+      testDir: './tests/api',
+      use: {
+        baseURL: process.env.API_BASE_URL,
+      },
     },
   ],
 });
