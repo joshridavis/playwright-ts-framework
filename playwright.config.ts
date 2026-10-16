@@ -15,7 +15,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL,
     testIdAttribute: 'data-test',
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
   },
 
   projects: [
@@ -24,7 +24,7 @@ export default defineConfig({
       testMatch: /.*\.setup\.ts/,
     },
     {
-      name: 'chromium',
+      name: 'ui',
       testDir: './tests/ui',
       use: {
         ...devices['Desktop Chrome'],
