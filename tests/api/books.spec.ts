@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { fetchAndValidateCatalog} from '../../utils/apiHelers';
 
 type Book = {
   isbn: string;
@@ -8,10 +9,7 @@ type Book = {
 
 test.describe('Book Store API - books catalog', () => {
   test('GET /BookStore/v1/Books returns the catalog', async ({ request }) => {
-    const response = await request.get('/BookStore/v1/Books');
-    expect(response.status()).toBe(200);
-    const body: { books: Book[] } = await response.json();
-    expect(body.books.length).toBeGreaterThan(0);
+    const body = await fetchAndValidateCatalog(request);
     for (const book of body.books) {
       expect(typeof book.isbn).toBe('string');
       expect(book.title).toBeTruthy();
@@ -20,8 +18,7 @@ test.describe('Book Store API - books catalog', () => {
 
   test('GET /BookStore/v1/Books then calling the isbn return its catalog', async ({ request }) => {
     const response = await request.get('/BookStore/v1/Books');
-    expect(response.status()).toBe(200);
-    const data = await response.json(); 
+    const data = await fetchAndValidateCatalog(request);
     const isbn = data.books[0].isbn;
     const response2 = await request.get('/BookStore/v1/Book?ISBN=' + isbn);
     const data2 = await response.json(); 
